@@ -1,1 +1,1 @@
-# food-stor-final-project
+# food-store-final-project
