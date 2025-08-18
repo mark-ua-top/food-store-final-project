@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+
+  &__logo-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: auto;
+  }
+  &__logo {
+    max-width: 32px;
+    max-height: 32px;
+    padding: 12px;
+    margin-right: 8px;
+    border-radius: 50px;
+    background-color: #6d8434;
+  }
+  &__button-home {
+    border-radius: 30px;
+    background: #6d8434;
+    display: flex;
+    padding: 12px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 24px;
+  }
+  &__home-text {
+    color: #e8e8e2;
+    font-family: "Montreal";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
+  }
+  &__cart-button {
+    display: flex;
+    align-items: center;
+  }
+  &__cart-button-image {
+    margin-right: 14px;
+    border-radius: 30px;
+    background: #6d8434;
+    padding: 10px;
+  }
+  &__cart-text {
+    color: #010101;
+    font-family: "Montreal";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,48 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 77px;
+
+  &__title {
+    color: #010101;
+    font-family: "Montreal";
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 80px;
+    letter-spacing: -1.6px;
+  }
+
+  &__title-span {
+    color: #6d8434;
+  }
+
+  &__des {
+    color: rgba(1, 1, 1, 0.8);
+    font-family: "Neue Montreal";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 492px;
+    margin: 20px auto 40px auto;
+  }
+
+  &__image-wrapper {
+    display: inline-block;
+    border-radius: 60px;
+    position: relative;
+
+    & .hero__image {
+      display: block;
+      border-radius: 60px;
+    }
+
+    & .hero__image-helper {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: 20px;
+      bottom: 280px;
+    }
+  }
+}
