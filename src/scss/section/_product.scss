@@ -1,14 +1,16 @@
 .product {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-family: "Neue Montreal", sans-serif;
+  flex-direction: row;
+  gap: 40px;
+  padding-top: 74px;
+  font-family: "Montreal", "spring";
 
   &__filters {
     color: rgba(1, 1, 1, 0.3);
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
+    margin-bottom: 8px;
   }
 
   &__options {
@@ -16,6 +18,7 @@
     align-items: center;
     gap: 12px;
     position: relative;
+    margin-bottom: 60px;
   }
 
   &__search {
@@ -24,7 +27,7 @@
     gap: 8px;
     padding: 14px 20px;
     border-radius: 30px;
-    border: 1px solid rgba(1,1,1,0.3);
+    border: 1px solid rgba(1, 1, 1, 0.3);
 
     &-input {
       border: none;
@@ -51,12 +54,12 @@
     &-box {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 94px;
       padding: 14px 20px;
       border-radius: 30px;
-      border: 1px solid rgba(1,1,1,0.3);
+      border: 1px solid rgba(1, 1, 1, 0.3);
       cursor: pointer;
-      background: #fff;
+      background: transparent;
 
       &:hover {
         background: #f5f5f5;
@@ -84,7 +87,7 @@
       left: 0;
       background: white;
       border-radius: 15px;
-      box-shadow: 0px 4px 11px rgba(0,0,0,0.04);
+      box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.04);
       overflow: hidden;
       z-index: 100;
       white-space: nowrap;
@@ -95,7 +98,7 @@
         font-size: 18px;
         font-weight: 400;
         line-height: 24px;
-        color: rgba(1,1,1,0.5);
+        color: rgba(1, 1, 1, 0.5);
         cursor: pointer;
 
         &.active {
@@ -110,16 +113,17 @@
     }
   }
 
-  &__atoz { 
-    &-box { background: #fafafa; }
+  &__atoz {
+    &-box {
+      background: #fafafa;
+    }
   }
-&__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 20px;
-  row-gap: 40px;
-}
-
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+  }
 }
 
 .product-card {
@@ -132,7 +136,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #FAFAFA;
+    background: #fafafa;
     border-radius: 20px;
     top: 0;
     left: 0;
@@ -144,7 +148,7 @@
     height: 178px;
     top: 20px;
     left: 20px;
-    background: #E8E8E2;
+    background: #e8e8e2;
     border-radius: 10px;
   }
 
@@ -222,29 +226,331 @@
 
     &-button {
       padding: 8px;
-      background: #6D8434;
+      background: #6d8434;
       border-radius: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 36px;
-      height: 36px;
+      max-width: 18px;
+      max-height: 18px;
 
       &-icon {
-        width: 18px;
-        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
         position: relative;
         overflow: hidden;
-
-        &-inner {
-          width: 14.4px;
-          height: 15.3px;
-          background: #E8E8E2;
-          position: absolute;
-          top: 0.9px;
-          left: 1.8px;
-        }
       }
     }
   }
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+
+  &__btn {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 2px;
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    background: #fafafa;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: #a3a3a3;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      background: rgba(109, 132, 52, 0.1);
+    }
+
+    &--active {
+      background: #6d8434;
+      svg {
+        stroke: #e8e8e2;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+
+    div {
+      text-align: center;
+      color: #a3a3a3;
+      font-size: 14px;
+      font-family: "Neue Montreal";
+      font-weight: 500;
+      line-height: 20px;
+      word-wrap: break-word;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__page-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    font-family: "Neue Montreal";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: #a3a3a3;
+    transition: 0.2s;
+
+    &:hover {
+      background: rgba(109, 132, 52, 0.1);
+    }
+
+    &--active {
+      background: #6d8434;
+      color: #e8e8e2;
+    }
+  }
+}
+
+.page-numbers {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.popular {
+  padding-top: 138px;
+  margin-bottom: 40px;
+
+  &__title {
+    color: #010101;
+    font-family: "Montreal";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  &__item {
+    width: 275px;
+    height: 98px;
+    position: relative;
+  }
+
+  &__item-background {
+    width: 275px;
+    height: 98px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fafafa;
+    border-radius: 10px;
+  }
+
+  &__item-content {
+    width: 251px;
+    height: 74px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+
+  &__image-wrapper {
+    width: 74px;
+    height: 74px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e8e8e2;
+    border-radius: 10px;
+  }
+
+  &__image {
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+  }
+
+  &__info {
+    width: 152px;
+    height: 74px;
+    position: absolute;
+    left: 84px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #010101;
+    word-wrap: break-word;
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  &__detail {
+    display: flex;
+    gap: 4px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  &__label {
+    color: rgba(1, 1, 1, 0.3);
+  }
+
+  &__value {
+    color: #010101;
+font-family: "Neue Montreal";
+font-size: 11px;
+font-style: normal;
+font-weight: 500;
+  }
+
+  &__popularity {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 231px;
+    top: 0;
+    background: #e8e8e2;
+    border-radius: 30px;
+  }
+
+  &__popularity-indicator {
+    max-width: 12px;
+    max-height: 12px;
+    position: relative;
+    top: 2px;
+    left: 4px;
+  }
+}
+.discount {
+
+
+  &__title {
+    color: #010101;
+    font-family: "Montreal";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__item {
+    width: 275px;
+    height: 232px;
+    position: relative;
+  }
+
+  &__background {
+    width: 275px;
+    height: 232px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fafafa;
+    border-radius: 15px;
+  }
+
+  &__image-bg {
+    width: 243px;
+    height: 150px;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    background: #e8e8e2;
+    border-radius: 10px;
+  }
+
+  &__image {
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    left: 85px;
+    top: 39px;
+  }
+
+  &__name {
+    position: absolute;
+    left: 16px;
+    top: 187px;
+    color: #010101;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  &__price {
+    position: absolute;
+    left: 165px;
+    top: 187px;
+    color: #010101;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  &__button {
+    padding: 8px;
+    position: absolute;
+    left: 225px;
+    top: 182px;
+    background: #6d8434;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.first{
+  min-width: 925px;
 }

@@ -1,15 +1,19 @@
 @font-face {
   font-family: "spring";
-  src: url("fonts/Fontspring-DEMO-mersin-blackitalic.woff2") format("woff2");
+  src: url("../fonts/Fontspring-DEMO-mersin-blackitalic.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montreal";
-  src: url("fonts/PPNeueMontreal-Medium.woff2") format("woff2");
+  src: url("../fonts/PPNeueMontreal-Medium.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+}
+
+body {
+  background: #E8E8E2;
 }
 
 .container {

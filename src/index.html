@@ -103,86 +103,134 @@
         </p>
       </button>
     </header>
-<section class="hero container">
-  <h1 class="hero__title">
-    Welcome to the <span class="hero__title-span">Food</span> Boutique!
-  </h1>
-  <p class="hero__des">
-    With Food Boutique, you're not just subscribing to food, you're signing
-    up for a fresher, fitter, and happier you.
-  </p>
-  <div class="hero__image-wrapper">
-    <img class="hero__image" src="./image/hero-Image.webp" alt="" />
-    <img class="hero__image-helper" src="./image/organic-food.webp" alt="" />
-  </div>
-</section>
-
+    <section class="hero container">
+      <h1 class="hero__title">
+        Welcome to the <span class="hero__title-span">Food</span> Boutique!
+      </h1>
+      <p class="hero__des">
+        With Food Boutique, you're not just subscribing to food, you're signing
+        up for a fresher, fitter, and happier you.
+      </p>
+      <div class="hero__image-wrapper">
+        <img class="hero__image" src="./image/hero-Image.webp" alt="" />
+        <img
+          class="hero__image-helper"
+          src="./image/organic-food.webp"
+          alt=""
+        />
+      </div>
+    </section>
     <section class="product container">
-<div class="product">
-  <div class="product__filters">Filters:</div>
+      <div class="first">
+        <div class="product__filters">Filters:</div>
+        <div class="product__options">
+          <div class="product__search">
+            <input
+              type="text"
+              class="product__search-input"
+              placeholder="Search for anything"
+            />
+            <div class="product__search-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+          </div>
 
-  <div class="product__options">
-    <div class="product__search">
-      <input type="text" class="product__search-input" placeholder="Search for anything">
-      <div class="product__search-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </div>
-    </div>
+          <div class="product__categories">
+            <div class="product__categories-box">
+              <span class="product__categories-text">Categories</span>
+              <div class="product__categories-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+            </div>
+            <div class="product__categories-menu">
+              <div class="product__dropdown-item active">Beverages</div>
+              <div class="product__dropdown-item">Breads / Bakery</div>
+              <div class="product__dropdown-item">Dairy</div>
+              <div class="product__dropdown-item">Deli</div>
+              <div class="product__dropdown-item">Eggs</div>
+              <div class="product__dropdown-item">Fresh Produce</div>
+              <div class="product__dropdown-item">Meat & Seafood</div>
+              <div class="product__dropdown-item">Pantry Items</div>
+              <div class="product__dropdown-item">Prepared Foods</div>
+              <div class="product__dropdown-item">Snacks</div>
+              <div class="product__dropdown-item">Show all</div>
+            </div>
+          </div>
 
-    <div class="product__categories">
-      <div class="product__categories-box">
-        <span class="product__categories-text">Categories</span>
-        <div class="product__categories-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+          <div class="product__atoz">
+            <div class="product__atoz-box">
+              <span class="product__atoz-text">A to Z</span>
+              <div class="product__atoz-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+            </div>
+            <div class="product__atoz-menu">
+              <div class="product__dropdown-item active">A to Z</div>
+              <div class="product__dropdown-item">Z to A</div>
+              <div class="product__dropdown-item">Cheap</div>
+              <div class="product__dropdown-item">Expensive</div>
+              <div class="product__dropdown-item">Popular</div>
+              <div class="product__dropdown-item">Not popular</div>
+              <div class="product__dropdown-item">Show all</div>
+            </div>
+          </div>
+        </div>
+        <div class="product__list" id="products-container"></div>
+        <div class="pagination">
+          <button class="first-page"></button>
+          <button class="prev-page"></button>
+          <div class="page-numbers"></div>
+          <button class="next-page"></button>
+          <button class="last-page"></button>
         </div>
       </div>
-      <div class="product__categories-menu">
-        <div class="product__dropdown-item active">Beverages</div>
-        <div class="product__dropdown-item">Breads / Bakery</div>
-        <div class="product__dropdown-item">Dairy</div>
-        <div class="product__dropdown-item">Deli</div>
-        <div class="product__dropdown-item">Eggs</div>
-        <div class="product__dropdown-item">Fresh Produce</div>
-        <div class="product__dropdown-item">Meat & Seafood</div>
-        <div class="product__dropdown-item">Pantry Items</div>
-        <div class="product__dropdown-item">Prepared Foods</div>
-        <div class="product__dropdown-item">Snacks</div>
-        <div class="product__dropdown-item">Show all</div>
-      </div>
-    </div>
-
-    <div class="product__atoz">
-      <div class="product__atoz-box">
-        <span class="product__atoz-text">A to Z</span>
-        <div class="product__atoz-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+      <div class="seccond">
+        <div class="popular">
+          <h2 class="popular__title">Popular products</h2>
+          <div class="popular__list"></div>
+        </div>
+        <div class="discount">
+          <h2 class="discount__title">Discounted products</h2>
+          <div class="discount__list"></div>
         </div>
       </div>
-      <div class="product__atoz-menu">
-        <div class="product__dropdown-item active">A to Z</div>
-        <div class="product__dropdown-item">Z to A</div>
-        <div class="product__dropdown-item">Cheap</div>
-        <div class="product__dropdown-item">Expensive</div>
-        <div class="product__dropdown-item">Popular</div>
-        <div class="product__dropdown-item">Not popular</div>
-        <div class="product__dropdown-item">Show all</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-<div class="products__list" id="products-container"></div>
-
     </section>
     <footer class="footer container"></footer>
     <script type="module" src="./index.js"></script>
