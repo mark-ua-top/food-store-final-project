@@ -59,7 +59,6 @@ body {
 }
 
 .container {
-  padding: 0 100px;
   margin: 0 auto;
 }
 @media screen and (min-width: 320px) {
@@ -79,7 +78,7 @@ body {
 }
 @media screen and (min-width: 1200px) {
   .container {
-    width: 1200px;
+    width: 1240px;
   }
 }
 
@@ -111,8 +110,6 @@ body {
   align-items: center;
   gap: 10px;
   margin-right: 24px;
-}
-.header__home-text {
   color: #e8e8e2;
   font-family: "Montreal";
   font-size: 18px;
@@ -190,6 +187,14 @@ body {
   padding-top: 74px;
   font-family: "Montreal", "spring";
 }
+.product__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 40px;
+  position: absolute;
+}
 .product__filters {
   color: rgba(1, 1, 1, 0.3);
   font-size: 14px;
@@ -226,6 +231,41 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.product__nothing-list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 249px;
+}
+.product__nothing-found {
+  color: #010101;
+  text-align: center;
+  font-family: "montreal";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  width: 371px;
+  margin-bottom: 14px;
+}
+.product__nothing-found-span {
+  color: #6d8434;
+  font-family: "montreal";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.product__nothing-found-dex {
+  color: rgba(1, 1, 1, 0.7);
+  text-align: center;
+  font-family: "montreal";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  max-width: 371px;
 }
 .product__categories, .product__atoz {
   position: relative;
@@ -286,13 +326,6 @@ body {
 }
 .product__atoz-box {
   background: #fafafa;
-}
-.product__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-  row-gap: 40px;
 }
 
 .product-card {
@@ -405,6 +438,9 @@ body {
   gap: 8px;
   justify-content: center;
   margin-top: 20px;
+}
+.pagination__hidden {
+  display: none;
 }
 .pagination__btn {
   display: flex;
@@ -673,4 +709,144 @@ body {
 
 .first {
   min-width: 925px;
+}
+
+.footer {
+  width: 100%;
+  background-color: #6d8434;
+  padding-top: 44px;
+  padding-bottom: 20px;
+  margin-top: 61px;
+}
+.footer__list {
+  display: flex;
+  flex-direction: row;
+  gap: 144px;
+}
+.footer__item {
+  display: flex;
+  flex-direction: column;
+}
+.footer__logo-button {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.footer_logo {
+  background-color: #e8e8e2;
+  width: 20px;
+  height: 20px;
+  padding: 6px;
+  border-radius: 60px;
+}
+.footer_logo-text {
+  color: #e8e8e2;
+  font-family: "spring";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 24px; /* 100% */
+  letter-spacing: -0.48px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.footer__facebook {
+  border-radius: 10px;
+  border: 1px solid rgba(232, 232, 226, 0.3);
+  padding: 8px;
+}
+.footer__insta {
+  border-radius: 10px;
+  border: 1px solid rgba(232, 232, 226, 0.3);
+  padding: 8px;
+}
+.footer__youtube {
+  border-radius: 10px;
+  border: 1px solid rgba(232, 232, 226, 0.3);
+  padding: 8px;
+}
+.footer__reserve {
+  margin-top: 212px;
+  color: #e8e8e2;
+  font-family: "montreal";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.footer__title {
+  color: #e8e8e2;
+  font-family: "montreal";
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: -0.8px;
+  max-width: 410px;
+}
+.footer__description {
+  color: rgba(232, 232, 226, 0.7);
+  font-family: "montreal";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 20px;
+  max-width: 410px;
+}
+.footer__subscribe {
+  color: #e8e8e2;
+  font-family: "montreal";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+.footer__subscribe-input {
+  max-width: 336px;
+  display: flex;
+  padding: 12px 18px 12px 18px;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid #e8e8e2;
+  color: rgba(232, 232, 226, 0.6);
+  font-family: "montreal";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  margin-bottom: 20px;
+}
+.footer__subscribe-input::-moz-placeholder {
+  color: rgba(232, 232, 226, 0.6);
+  font-family: "montreal";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.footer__subscribe-input::placeholder {
+  color: rgba(232, 232, 226, 0.6);
+  font-family: "montreal";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.footer__subscribe-send {
+  display: flex;
+  max-width: 336px;
+  padding: 12px 149px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  background: #e8e8e2;
+}
+.footer__privacy {
+  margin-top: 148px;
+  margin-left: auto;
+  color: #E8E8E2;
+  text-align: right;
+  font-family: "montreal";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
 }/*# sourceMappingURL=main.css.map */

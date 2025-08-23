@@ -102,13 +102,11 @@ async function fetchProducts(page = 1) {
 function applyView() {
   let view = [...allProducts];
 
-  // Пошук
   const query = (searchInput?.value || "").trim().toLowerCase();
   if (query) {
     view = view.filter((p) => (p.name || "").toLowerCase().includes(query));
   }
 
-  // Категорії
   const selectedCategory = (categoriesText.textContent || "").trim();
   if (selectedCategory && selectedCategory !== "Show all") {
     view = view.filter(
@@ -116,7 +114,6 @@ function applyView() {
     );
   }
 
-  // Сортування
   const selectedSort = (atozText.textContent || "").trim();
   if (selectedSort === "A to Z")
     view.sort((a, b) => a.name.localeCompare(b.name));
@@ -138,41 +135,55 @@ function applyView() {
 }
 
 function renderProducts(products) {
+  const pagination = document.querySelector(".pagination");
+
   container.classList.add("fade-out");
   setTimeout(() => {
     container.innerHTML = "";
+
+    if (!products || products.length === 0) {
+      container.innerHTML = `
+<div class="product__nothing-list">
+  <h2 class="product__nothing-found">
+    Nothing was found for the selected
+    <span class="product__nothing-found-span">filters...</span>
+  </h2>
+  <p class="product__nothing-found-dex">
+    Try adjusting your search parameters or browse our range by other criteria
+    to find the perfect product for you.
+  </p>
+</div>
+      `;
+      pagination.style.display = "none";
+      container.classList.remove("fade-out");
+      container.classList.add("fade-in");
+      return;
+    }
+
     products.forEach((product) => {
       const card = document.createElement("div");
       card.classList.add("product-card");
       card.innerHTML = `
         <div class="product-card__bg"></div>
         <div class="product-card__image-bg"></div>
-        <img class="product-card__image" src="${product.img}" alt="${
-        product.name
-      }" />
+        <img class="product-card__image" src="${product.img}" alt="${product.name}" />
         <div class="product-card__info">
           <div class="product-card__info-name">${product.name}</div>
           <div class="product-card__info-details">
             <div class="product-card__info-details-row">
               <div class="product-card__info-details-row-item">
                 <div class="product-card__info-details-row-item-label">Category:</div>
-                <div class="product-card__info-details-row-item-value">${(
-                  product.category || ""
-                ).replace(/_/g, " ")}</div>
+                <div class="product-card__info-details-row-item-value">${(product.category || "").replace(/_/g, " ")}</div>
               </div>
               <div class="product-card__info-details-row-item">
                 <div class="product-card__info-details-row-item-label">Size:</div>
-                <div class="product-card__info-details-row-item-value">${
-                  product.size ?? ""
-                }</div>
+                <div class="product-card__info-details-row-item-value">${product.size ?? ""}</div>
               </div>
             </div>
             <div class="product-card__info-details-row">
               <div class="product-card__info-details-row-item">
                 <div class="product-card__info-details-row-item-label">Popularity:</div>
-                <div class="product-card__info-details-row-item-value">${
-                  product.popularity ?? ""
-                }</div>
+                <div class="product-card__info-details-row-item-value">${product.popularity ?? ""}</div>
               </div>
             </div>
           </div>
@@ -192,10 +203,13 @@ function renderProducts(products) {
       `;
       container.appendChild(card);
     });
+
+    pagination.style.display = "";
     container.classList.remove("fade-out");
     container.classList.add("fade-in");
   }, 250);
 }
+
 
 function setupPaginationNav() {
   [firstBtnEl, prevBtnEl, nextBtnEl, lastBtnEl].forEach((btn) => {
@@ -289,13 +303,14 @@ fetch("https://food-boutique.b.goit.study/api/products/popular")
     });
   });
 
+const discountList = document.querySelector(".discount__list");
 
-const discountList = document.querySelector('.discount__list');
-
-fetch('https://food-boutique.b.goit.study/api/products/discount')
-  .then(res => res.json())
-  .then(data => {
-    let remaining = JSON.parse(localStorage.getItem('discountRemaining')) || [...data];
+fetch("https://food-boutique.b.goit.study/api/products/discount")
+  .then((res) => res.json())
+  .then((data) => {
+    let remaining = JSON.parse(localStorage.getItem("discountRemaining")) || [
+      ...data,
+    ];
     if (remaining.length < 2) {
       remaining = [...data];
     }
@@ -305,12 +320,12 @@ fetch('https://food-boutique.b.goit.study/api/products/discount')
     const selected = remaining.slice(0, 2);
 
     remaining = remaining.slice(2);
-    localStorage.setItem('discountRemaining', JSON.stringify(remaining));
+    localStorage.setItem("discountRemaining", JSON.stringify(remaining));
 
-    discountList.innerHTML = '';
-    selected.forEach(item => {
-      const product = document.createElement('div');
-      product.classList.add('discount__item');
+    discountList.innerHTML = "";
+    selected.forEach((item) => {
+      const product = document.createElement("div");
+      product.classList.add("discount__item");
 
       product.innerHTML = `
         <div class="discount__background"></div>
@@ -330,4 +345,4 @@ fetch('https://food-boutique.b.goit.study/api/products/discount')
       discountList.appendChild(product);
     });
   })
-  .catch(err => console.error('Error fetching discount products:', err));
+  .catch((err) => console.error("Error fetching discount products:", err));
