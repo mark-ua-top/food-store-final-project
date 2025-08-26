@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx parcel src/index.html",
-    "build": "parcel build src/index.html --public-url /food-store-final-project/ --no-source-maps",
-    "deploy": "gh-pages -d dist",
+    "build": "parcel build src/index.html --no-cache --public-url './'",
+    "deploy": "gh-pages -d dist --branch gh-pages",
     "predeploy": "npm run build"
   },
   "repository": {

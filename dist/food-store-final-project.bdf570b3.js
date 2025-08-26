@@ -120,3 +120,4 @@ let t=[],e=1,o=1;const i=document.querySelector(".product__categories-box"),a=do
 </button>
         </div>
       `,k.appendChild(e)})}).catch(t=>console.error("Error fetching discount products:",t));
+//# sourceMappingURL=food-store-final-project.bdf570b3.js.map
