@@ -1,3 +1,6 @@
+import './main.scss';
+
+
 let productsData = [];
 let allProducts = [];
 let currentPage = 1;
