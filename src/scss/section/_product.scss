@@ -280,6 +280,8 @@
         max-height: 18px;
         position: relative;
         overflow: hidden;
+        padding-left: 0px;
+        padding-right: 0px;
       }
     }
   }
@@ -492,6 +494,7 @@
     top: 0;
     background: #e8e8e2;
     border-radius: 30px;
+    padding-left: 0px;
   }
 
   &__popularity-indicator {
@@ -591,6 +594,8 @@
     height: 18px;
     position: relative;
     overflow: hidden;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 

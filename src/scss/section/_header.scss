@@ -8,6 +8,7 @@
     flex-direction: row;
     align-items: center;
     margin-right: auto;
+    padding: 0px;
   }
   &__logo {
     max-width: 32px;
@@ -26,7 +27,7 @@
     align-items: center;
     gap: 10px;
     margin-right: 24px;
-        color: #e8e8e2;
+    color: #e8e8e2;
     font-family: "Montreal";
     font-size: 18px;
     font-style: normal;

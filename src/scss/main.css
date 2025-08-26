@@ -92,6 +92,7 @@ body {
   flex-direction: row;
   align-items: center;
   margin-right: auto;
+  padding: 0px;
 }
 .header__logo {
   max-width: 32px;
@@ -431,6 +432,8 @@ body {
   max-height: 18px;
   position: relative;
   overflow: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .pagination {
@@ -617,6 +620,7 @@ body {
   top: 0;
   background: #e8e8e2;
   border-radius: 30px;
+  padding-left: 0px;
 }
 .popular__popularity-indicator {
   max-width: 12px;
@@ -705,6 +709,8 @@ body {
   height: 18px;
   position: relative;
   overflow: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .first {
@@ -849,4 +855,125 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+}
+
+.cart-sec {
+  display: flex;
+  gap: 101px;
+  margin-top: 90px;
+}
+.cart-sec__title {
+  display: flex;
+  gap: 14px;
+  flex-direction: row;
+  align-items: center;
+}
+.cart-sec__cart-button-image {
+  display: inline-flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: #6d8434;
+}
+.cart-sec__cart-text {
+  color: #010101;
+  font-family: "montreal";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px; /* 100% */
+  text-transform: uppercase;
+}
+.cart-sec__delete-all-button {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  margin-top: 19px;
+  margin-left: 404px;
+}
+.cart-sec__delete-all-button-text {
+  color: #010101;
+  font-family: "montreal";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+}
+.cart-sec__cart-list {
+  margin-top: 46px;
+  max-width: 520px;
+}
+.cart-sec__second-title {
+  margin-top: 129px;
+  color: #010101;
+  font-family: "montreal";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px; /* 100% */
+  text-transform: uppercase;
+}
+.cart-sec__total-sum {
+  margin-top: 40px;
+  border-radius: 8px;
+  background: rgba(109, 132, 52, 0.05);
+  padding: 14px 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cart-sec__total {
+  color: #010101;
+  font-family: "montreal";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+  margin-right: 364px;
+}
+.cart-sec__sum {
+  color: rgba(1, 1, 1, 0.2);
+  font-family: "montreal";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+}
+.cart-sec__sum-span {
+  color: #010101;
+  font-family: "montreal";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px; /* 100% */
+  margin-left: 8px;
+}
+.cart-sec__input {
+  display: inline-flex;
+  padding: 15px 166px 15px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  color: #010101;
+  font-family: "montreal";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  background-color: transparent;
+  margin-top: 55px;
+}
+.cart-sec__checkout {
+  display: inline-flex;
+  padding: 15px 65px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: #6d8434;
+  color: #e8e8e2;
+  font-family: "montreal";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+  margin-left: 16px;
 }/*# sourceMappingURL=main.css.map */
