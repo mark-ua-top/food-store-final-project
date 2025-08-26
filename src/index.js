@@ -1,6 +1,3 @@
-import './main.scss';
-
-
 let productsData = [];
 let allProducts = [];
 let currentPage = 1;
@@ -377,3 +374,6 @@ fetch("https://food-boutique.b.goit.study/api/products/discount")
     });
   })
   .catch((err) => console.error("Error fetching discount products:", err));
+
+  import './main.scss';
+
