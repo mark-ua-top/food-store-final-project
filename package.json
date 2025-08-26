@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./--no-source-maps",
-    "deploy": "gh-pages -d dist",
+    "build": "parcel build src/index.html --no-cache --public-url ./",
+    "deploy": "gh-pages -d dist --branch gh-pages",
     "predeploy": "npm run build"
   },
   "repository": {
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/mark-ua-top/food-store-final-project/issues"
   },
-  "homepage": "https://github.com/mark-ua-top/food-store-final-project#readme",
+  "homepage": "https://mark-ua-top.github.io/food-store-final-project/",
   "dependencies": {
     "gh-pages": "^6.3.0",
     "json-server": "^1.0.0-beta.3",
