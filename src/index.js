@@ -154,7 +154,7 @@ function renderProducts(products) {
   </p>
 </div>
       `;
-      pagination.style.display = "none";
+      pagination.classList.add("pagination__hidden")
       container.classList.remove("fade-out");
       container.classList.add("fade-in");
       return;
@@ -207,6 +207,7 @@ function renderProducts(products) {
     pagination.style.display = "";
     container.classList.remove("fade-out");
     container.classList.add("fade-in");
+    pagination.classList.remove("pagination__hidden")
   }, 250);
 }
 
