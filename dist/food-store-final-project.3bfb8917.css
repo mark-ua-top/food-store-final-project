@@ -34,14 +34,14 @@ button {
 
 @font-face {
   font-family: spring;
-  src: url("Fontspring-DEMO-mersin-blackitalic.300c5497.woff2") format("woff2");
+  src: url("Fontspring-DEMO-mersin-blackitalic.a6ca7a4d.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: Montreal;
-  src: url("PPNeueMontreal-Medium.09899349.woff2") format("woff2");
+  src: url("PPNeueMontreal-Medium.b6cab514.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -1060,4 +1060,4 @@ body {
   line-height: 24px;
   display: inline-flex;
 }
-/*# sourceMappingURL=food-store-final-project.0404ff0d.css.map */
+/*# sourceMappingURL=food-store-final-project.3bfb8917.css.map */
