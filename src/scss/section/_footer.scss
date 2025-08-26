@@ -1,0 +1,133 @@
+.footer {
+  width: 100%;
+  background-color: #6d8434;
+  padding-top: 44px;
+  padding-bottom: 20px;
+  margin-top: 61px;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 144px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+  &__logo-button {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  &_logo {
+    background-color: #e8e8e2;
+    width: 20px;
+    height: 20px;
+    padding: 6px;
+    border-radius: 60px;
+  }
+  &_logo-text {
+    color: #e8e8e2;
+    font-family: "spring";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 24px; /* 100% */
+    letter-spacing: -0.48px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  &__facebook {
+    border-radius: 10px;
+    border: 1px solid rgba(232, 232, 226, 0.3);
+    padding: 8px;
+  }
+  &__insta {
+    border-radius: 10px;
+    border: 1px solid rgba(232, 232, 226, 0.3);
+    padding: 8px;
+  }
+  &__youtube {
+    border-radius: 10px;
+    border: 1px solid rgba(232, 232, 226, 0.3);
+    padding: 8px;
+  }
+  &__reserve {
+    margin-top: 212px;
+    color: #e8e8e2;
+    font-family: "montreal";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  &__title {
+    color: #e8e8e2;
+    font-family: "montreal";
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: -0.8px;
+    max-width: 410px;
+  }
+  &__description {
+    color: rgba(232, 232, 226, 0.7);
+    font-family: "montreal";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 20px;
+    max-width: 410px;
+  }
+  &__subscribe {
+    color: #e8e8e2;
+    font-family: "montreal";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+  &__subscribe-input {
+    max-width: 336px;
+    display: flex;
+    padding: 12px 18px 12px 18px;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border-radius: 30px;
+    border: 1px solid #e8e8e2;
+    color: rgba(232, 232, 226, 0.6);
+    font-family: "montreal";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    margin-bottom: 20px;
+  }
+  &__subscribe-input::placeholder {
+    color: rgba(232, 232, 226, 0.6);
+    font-family: "montreal";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+  }
+  &__subscribe-send {
+    display: flex;
+    max-width: 336px;
+    padding: 12px 149px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 30px;
+    background: #e8e8e2;
+  }
+  &__privacy {
+    margin-top: 148px;
+    margin-left: auto;
+    color: #E8E8E2;
+text-align: right;
+font-family: "montreal";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 128.571% */
+  }
+}
