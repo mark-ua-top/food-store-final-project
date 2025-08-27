@@ -18,6 +18,7 @@ const $3da87ddc4a220fcd$var$prevBtnEl = $3da87ddc4a220fcd$var$paginationRoot.que
 const $3da87ddc4a220fcd$var$numsWrapEl = $3da87ddc4a220fcd$var$paginationRoot.querySelector(".page-numbers");
 const $3da87ddc4a220fcd$var$nextBtnEl = $3da87ddc4a220fcd$var$paginationRoot.querySelector(".next-page");
 const $3da87ddc4a220fcd$var$lastBtnEl = $3da87ddc4a220fcd$var$paginationRoot.querySelector(".last-page");
+const $3da87ddc4a220fcd$var$headerCartCounter = document.querySelector(".header__cart-span");
 function $3da87ddc4a220fcd$var$toggleMenu(menu) {
     menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
@@ -144,7 +145,7 @@ function $3da87ddc4a220fcd$var$renderProducts(products) {
         <div class="product-card__footer">
           <div class="product-card__footer-price">$${product.price}</div>
           <div class="product-card__footer-button">
- <button class="product-card__footer-button-icon">
+ <button class="product-card__footer-button-icon cart-button">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="18"
@@ -241,7 +242,7 @@ fetch("https://food-boutique.b.goit.study/api/products/popular").then((res)=>res
               <div class="popular__detail"><div class="popular__label">Popularity:</div><div class="popular__value">${item.popularity}</div></div>
             </div>
           </div>
-          <button type="button" class="popular__popularity">
+          <button class="popular__popularity cart-button">
   <svg
     class="popular__popularity-indicator"
     xmlns="http://www.w3.org/2000/svg"
@@ -284,7 +285,7 @@ fetch("https://food-boutique.b.goit.study/api/products/discount").then((res)=>re
         <div class="discount__name">${item.name}</div>
         <div class="discount__price">$${item.price}</div>
         <div class="discount__button">
-<button class="discount__icon">
+<button class="discount__icon cart-button">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="18"
@@ -303,6 +304,36 @@ fetch("https://food-boutique.b.goit.study/api/products/discount").then((res)=>re
         $3da87ddc4a220fcd$var$discountList.appendChild(product);
     });
 }).catch((err)=>console.error("Error fetching discount products:", err));
+let $3da87ddc4a220fcd$var$cart = JSON.parse(localStorage.getItem("cart")) || [];
+function $3da87ddc4a220fcd$var$updateCartCounter() {
+    if ($3da87ddc4a220fcd$var$headerCartCounter) $3da87ddc4a220fcd$var$headerCartCounter.textContent = $3da87ddc4a220fcd$var$cart.length;
+}
+// при завантаженні сторінки
+document.addEventListener("DOMContentLoaded", ()=>{
+    $3da87ddc4a220fcd$var$updateCartCounter();
+});
+document.addEventListener("click", (e)=>{
+    const addBtn = e.target.closest(".cart-button");
+    if (!addBtn) return;
+    const productBlock = addBtn.closest(".product-card") || addBtn.closest(".popular__item") || addBtn.closest(".discount__item");
+    if (!productBlock) return;
+    const img = productBlock.querySelector("img")?.src || "";
+    const name = productBlock.querySelector(".product-card__info-name, .popular__name, .discount__name")?.textContent || "";
+    const category = productBlock.querySelector(".product-card__info-details-row-item-value, .popular__value")?.textContent || "";
+    const size = productBlock.querySelector(".product-card__info-details-row:nth-child(1) .product-card__info-details-row-item-value:last-child")?.textContent || "";
+    const priceText = productBlock.querySelector(".product-card__footer-price, .discount__price")?.textContent || "$0";
+    const price = parseFloat(priceText.replace("$", "")) || 0;
+    const product = {
+        img: img,
+        name: name,
+        category: category,
+        size: size,
+        price: price
+    };
+    $3da87ddc4a220fcd$var$cart.push(product);
+    localStorage.setItem("cart", JSON.stringify($3da87ddc4a220fcd$var$cart));
+    $3da87ddc4a220fcd$var$updateCartCounter();
+});
 
 
-//# sourceMappingURL=food-store-final-project.1ffff0ce.js.map
+//# sourceMappingURL=food-store-final-project.298f6351.js.map

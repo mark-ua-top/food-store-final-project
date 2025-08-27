@@ -41,13 +41,25 @@
     font-weight: 500;
     line-height: 20px; /* 125% */
   }
-  &__delete-all-button-svg {
-  }
   &__cart-list {
-    margin-top: 46px;
-    max-width: 520px;
+  margin-top: 46px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  max-height: calc(120px * 3 + 80px * 2);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 9px;
   }
-  &__second {
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(1, 1, 1, 0.08);
+    border-radius: 20px;
+  }
   }
   &__second-title {
     margin-top: 129px;
@@ -121,5 +133,107 @@
     font-weight: 500;
     line-height: 24px; /* 120% */
     margin-left: 16px;
+  }
+}
+
+.my-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 12px;
+  
+  &__item {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    position: relative;
+
+    &__image {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    &__info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      &-name {
+        font-family: "montreal";
+        font-weight: 500;
+        font-size: 18px;
+        color: #010101;
+      }
+
+      &-div {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+
+      &-category,
+      &-size {
+        font-family: "montreal";
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(1, 1, 1, 0.5);
+      }
+
+      &-category-span {
+        color: #010101;
+        font-family: "montreal";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 128.571% */
+      }
+      &-size-span {
+        color: #010101;
+        font-family: "montreal";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 128.571% */
+      }
+    }
+
+    &__price {
+      font-family: "montreal";
+      font-weight: 500;
+      font-size: 18px;
+      color: #010101;
+      flex-shrink: 0;
+      margin-top: 34px;
+    }
+
+    &__remove-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: #010101;
+        opacity: 0.3;
+        transition: opacity 0.2s;
+      }
+
+      &:hover svg {
+        opacity: 1;
+      }
+    }
   }
 }

@@ -21,6 +21,7 @@ const prevBtnEl = paginationRoot.querySelector(".prev-page");
 const numsWrapEl = paginationRoot.querySelector(".page-numbers");
 const nextBtnEl = paginationRoot.querySelector(".next-page");
 const lastBtnEl = paginationRoot.querySelector(".last-page");
+const headerCartCounter = document.querySelector(".header__cart-span");
 
 function toggleMenu(menu) {
   menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -154,7 +155,7 @@ function renderProducts(products) {
   </p>
 </div>
       `;
-      pagination.classList.add("pagination__hidden")
+      pagination.classList.add("pagination__hidden");
       container.classList.remove("fade-out");
       container.classList.add("fade-in");
       return;
@@ -166,24 +167,32 @@ function renderProducts(products) {
       card.innerHTML = `
         <div class="product-card__bg"></div>
         <div class="product-card__image-bg"></div>
-        <img class="product-card__image" src="${product.img}" alt="${product.name}" />
+        <img class="product-card__image" src="${product.img}" alt="${
+        product.name
+      }" />
         <div class="product-card__info">
           <div class="product-card__info-name">${product.name}</div>
           <div class="product-card__info-details">
             <div class="product-card__info-details-row">
               <div class="product-card__info-details-row-item">
                 <div class="product-card__info-details-row-item-label">Category:</div>
-                <div class="product-card__info-details-row-item-value">${(product.category || "").replace(/_/g, " ")}</div>
+                <div class="product-card__info-details-row-item-value">${(
+                  product.category || ""
+                ).replace(/_/g, " ")}</div>
               </div>
               <div class="product-card__info-details-row-item">
                 <div class="product-card__info-details-row-item-label">Size:</div>
-                <div class="product-card__info-details-row-item-value">${product.size ?? ""}</div>
+                <div class="product-card__info-details-row-item-value">${
+                  product.size ?? ""
+                }</div>
               </div>
             </div>
             <div class="product-card__info-details-row">
               <div class="product-card__info-details-row-item">
                 <div class="product-card__info-details-row-item-label">Popularity:</div>
-                <div class="product-card__info-details-row-item-value">${product.popularity ?? ""}</div>
+                <div class="product-card__info-details-row-item-value">${
+                  product.popularity ?? ""
+                }</div>
               </div>
             </div>
           </div>
@@ -191,7 +200,7 @@ function renderProducts(products) {
         <div class="product-card__footer">
           <div class="product-card__footer-price">$${product.price}</div>
           <div class="product-card__footer-button">
- <button class="product-card__footer-button-icon">
+ <button class="product-card__footer-button-icon cart-button">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="18"
@@ -215,10 +224,9 @@ function renderProducts(products) {
     pagination.style.display = "";
     container.classList.remove("fade-out");
     container.classList.add("fade-in");
-    pagination.classList.remove("pagination__hidden")
+    pagination.classList.remove("pagination__hidden");
   }, 250);
 }
-
 
 function setupPaginationNav() {
   [firstBtnEl, prevBtnEl, nextBtnEl, lastBtnEl].forEach((btn) => {
@@ -300,7 +308,7 @@ fetch("https://food-boutique.b.goit.study/api/products/popular")
               <div class="popular__detail"><div class="popular__label">Popularity:</div><div class="popular__value">${item.popularity}</div></div>
             </div>
           </div>
-          <button type="button" class="popular__popularity">
+          <button class="popular__popularity cart-button">
   <svg
     class="popular__popularity-indicator"
     xmlns="http://www.w3.org/2000/svg"
@@ -353,7 +361,7 @@ fetch("https://food-boutique.b.goit.study/api/products/discount")
         <div class="discount__name">${item.name}</div>
         <div class="discount__price">$${item.price}</div>
         <div class="discount__button">
-<button class="discount__icon">
+<button class="discount__icon cart-button">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="18"
@@ -375,5 +383,55 @@ fetch("https://food-boutique.b.goit.study/api/products/discount")
   })
   .catch((err) => console.error("Error fetching discount products:", err));
 
-  import './main.scss';
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+function updateCartCounter() {
+  if (headerCartCounter) {
+    headerCartCounter.textContent = cart.length;
+  }
+}
+
+// при завантаженні сторінки
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCounter();
+});
+
+document.addEventListener("click", (e) => {
+  const addBtn = e.target.closest(".cart-button");
+  if (!addBtn) return;
+
+  const productBlock =
+    addBtn.closest(".product-card") ||
+    addBtn.closest(".popular__item") ||
+    addBtn.closest(".discount__item");
+
+  if (!productBlock) return;
+
+  const img = productBlock.querySelector("img")?.src || "";
+  const name =
+    productBlock.querySelector(
+      ".product-card__info-name, .popular__name, .discount__name"
+    )?.textContent || "";
+  const category =
+    productBlock.querySelector(
+      ".product-card__info-details-row-item-value, .popular__value"
+    )?.textContent || "";
+  const size =
+    productBlock.querySelector(
+      ".product-card__info-details-row:nth-child(1) .product-card__info-details-row-item-value:last-child"
+    )?.textContent || "";
+  const priceText =
+    productBlock.querySelector(".product-card__footer-price, .discount__price")
+      ?.textContent || "$0";
+  const price = parseFloat(priceText.replace("$", "")) || 0;
+
+  const product = { img, name, category, size, price };
+
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  updateCartCounter();
+});
+
+
+import "./main.scss";

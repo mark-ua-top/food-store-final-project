@@ -977,8 +977,26 @@ body {
 }
 
 .cart-sec__cart-list {
+  flex-direction: column;
+  gap: 80px;
   max-width: 520px;
+  max-height: 520px;
   margin-top: 46px;
+  display: flex;
+  overflow-y: auto;
+}
+
+.cart-sec__cart-list::-webkit-scrollbar {
+  width: 9px;
+}
+
+.cart-sec__cart-list::-webkit-scrollbar-track {
+  background: none;
+}
+
+.cart-sec__cart-list::-webkit-scrollbar-thumb {
+  background: #01010114;
+  border-radius: 20px;
 }
 
 .cart-sec__second-title {
@@ -1060,4 +1078,96 @@ body {
   line-height: 24px;
   display: inline-flex;
 }
-/*# sourceMappingURL=food-store-final-project.294375da.css.map */
+
+.my-cart {
+  flex-direction: column;
+  gap: 16px;
+  max-height: 600px;
+  padding-right: 12px;
+  display: flex;
+  overflow-y: auto;
+}
+
+.my-cart__item {
+  flex-direction: row;
+  gap: 40px;
+  display: flex;
+  position: relative;
+}
+
+.my-cart__item__image {
+  object-fit: cover;
+  background: #fafafa;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+}
+
+.my-cart__item__info {
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  display: flex;
+}
+
+.my-cart__item__info-name {
+  color: #010101;
+  font-family: montreal;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.my-cart__item__info-div {
+  flex-direction: row;
+  gap: 16px;
+  display: flex;
+}
+
+.my-cart__item__info-category, .my-cart__item__info-size {
+  color: #01010180;
+  font-family: montreal;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.my-cart__item__info-category-span, .my-cart__item__info-size-span {
+  color: #010101;
+  font-family: montreal;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.my-cart__item__price {
+  color: #010101;
+  flex-shrink: 0;
+  margin-top: 34px;
+  font-family: montreal;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.my-cart__item__remove-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  display: flex;
+}
+
+.my-cart__item__remove-button svg {
+  fill: #010101;
+  opacity: .3;
+  width: 16px;
+  height: 16px;
+  transition: opacity .2s;
+}
+
+.my-cart__item__remove-button:hover svg {
+  opacity: 1;
+}
+/*# sourceMappingURL=cart.489d8414.css.map */
