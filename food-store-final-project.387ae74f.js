@@ -308,7 +308,6 @@ let $3da87ddc4a220fcd$var$cart = JSON.parse(localStorage.getItem("cart")) || [];
 function $3da87ddc4a220fcd$var$updateCartCounter() {
     if ($3da87ddc4a220fcd$var$headerCartCounter) $3da87ddc4a220fcd$var$headerCartCounter.textContent = $3da87ddc4a220fcd$var$cart.length;
 }
-// при завантаженні сторінки
 document.addEventListener("DOMContentLoaded", ()=>{
     $3da87ddc4a220fcd$var$updateCartCounter();
 });
@@ -336,4 +335,4 @@ document.addEventListener("click", (e)=>{
 });
 
 
-//# sourceMappingURL=food-store-final-project.298f6351.js.map
+//# sourceMappingURL=food-store-final-project.387ae74f.js.map

@@ -59,7 +59,6 @@ document.addEventListener("click", (e)=>{
         $8a282ee307615b5e$var$renderCart();
         return;
     }
-    // змінено селектор на новий клас
     const deleteBtn = e.target.closest(".my-cart__item__remove-button");
     if (deleteBtn) {
         const index = deleteBtn.dataset.index;
@@ -82,4 +81,4 @@ $8a282ee307615b5e$var$updateCartCounter();
 $8a282ee307615b5e$var$renderCart();
 
 
-//# sourceMappingURL=cart.e2c4b170.js.map
+//# sourceMappingURL=cart.aee9e18b.js.map
