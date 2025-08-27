@@ -391,7 +391,6 @@ function updateCartCounter() {
   }
 }
 
-// при завантаженні сторінки
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCounter();
 });

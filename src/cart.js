@@ -66,7 +66,6 @@ document.addEventListener("click", e => {
     return;
   }
 
-  // змінено селектор на новий клас
   const deleteBtn = e.target.closest(".my-cart__item__remove-button");
   if (deleteBtn) {
     const index = deleteBtn.dataset.index;
