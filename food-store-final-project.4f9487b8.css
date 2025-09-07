@@ -1054,7 +1054,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-top: 55px;
-  padding: 15px 166px 15px 20px;
+  padding: 15px 136px 15px 20px;
   font-family: montreal;
   font-size: 18px;
   font-weight: 400;
@@ -1077,6 +1077,11 @@ body {
   font-weight: 500;
   line-height: 24px;
   display: inline-flex;
+}
+
+.cart-sec__checkout-div {
+  flex-direction: row;
+  display: flex;
 }
 
 .my-cart {
@@ -1109,6 +1114,7 @@ body {
   flex: 1;
   gap: 12px;
   display: flex;
+  position: relative;
 }
 
 .my-cart__item__info-name {
@@ -1170,4 +1176,63 @@ body {
 .my-cart__item__remove-button:hover svg {
   opacity: 1;
 }
-/*# sourceMappingURL=cart.489d8414.css.map */
+
+.my-cart__item__quantity {
+  outline-offset: -1px;
+  border-radius: 100px;
+  outline: 1px solid #0101011a;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 64px;
+  height: 24px;
+  margin-top: 8px;
+  padding: 5px 16px;
+  display: inline-flex;
+  position: absolute;
+  top: 78px;
+  left: 260px;
+}
+
+.qty-btn {
+  cursor: pointer;
+  color: #010101;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  transition: opacity .2s;
+  display: flex;
+}
+
+.qty-btn:hover {
+  opacity: .6;
+}
+
+.qty-input {
+  text-align: center;
+  color: #010101;
+  background: none;
+  border: none;
+  outline: none;
+  width: 12px;
+  height: 24px;
+  font-family: montreal;
+  font-size: 16px;
+}
+
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/*# sourceMappingURL=food-store-final-project.4f9487b8.css.map */
