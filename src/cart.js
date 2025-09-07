@@ -7,10 +7,11 @@ const deleteAllButton = document.querySelector(".cart-sec__delete-all-button");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function updateCartCounter() {
-  headerCartCounter.textContent = cart.length;
-  cartSecCounter.textContent = cart.length;
+  const totalItems = cart.reduce((sum, p) => sum + (p.quantity || 1), 0);
+  headerCartCounter.textContent = totalItems;
+  cartSecCounter.textContent = totalItems;
 
-  const totalSum = cart.reduce((sum, product) => sum + parseFloat(product.price || 0), 0);
+  const totalSum = cart.reduce((sum, product) => sum + (product.price * (product.quantity || 1)), 0);
   cartSumSpan.textContent = `$${totalSum.toFixed(2)}`;
 }
 
@@ -32,12 +33,15 @@ function renderCart() {
         Size: <span class="my-cart__item__info-size-span">${product.size}</span>
       </div>
     </div>
-    <div class="my-cart__item__price">$${product.price}</div>
+    <div class="my-cart__item__quantity" data-index="${index}">
+      <button class="qty-btn decrease">−</button>
+      <input type="number" class="qty-input" value="${product.quantity || 1}" min="1">
+      <button class="qty-btn increase">+</button>
+    </div>
+    <div class="my-cart__item__price">$${(product.price * (product.quantity || 1)).toFixed(2)}</div>
   </div>
   <button class="my-cart__item__remove-button" data-index="${index}">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M15.625 5.6832L14.3168 4.375L10 8.6918L5.6832 4.375L4.375 5.6832L8.6918 10L4.375 14.3168L5.6832 15.625L10 11.3082L14.3168 15.625L15.625 14.3168L11.3082 10L15.625 5.6832Z" fill="#010101"/>
-    </svg>
+    ✕
   </button>
 </div>
     `;
@@ -56,10 +60,17 @@ document.addEventListener("click", e => {
       name: productCard.querySelector(".product-card__info-name").textContent,
       category: productCard.querySelector(".product-card__info-details-row-item-value").textContent,
       size: productCard.querySelector(".product-card__info-details-row:nth-child(1) .product-card__info-details-row-item-value:last-child").textContent,
-      price: parseFloat(productCard.querySelector(".product-card__footer-price").textContent.replace("$","")) || 0
+      price: parseFloat(productCard.querySelector(".product-card__footer-price").textContent.replace("$", "")) || 0,
+      quantity: 1
     };
 
-    cart.push(product);
+    const existing = cart.find(p => p.name === product.name && p.size === product.size);
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push(product);
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCounter();
     renderCart();
@@ -83,6 +94,43 @@ document.addEventListener("click", e => {
     updateCartCounter();
     renderCart();
     return;
+  }
+
+  const increaseBtn = e.target.closest(".qty-btn.increase");
+  const decreaseBtn = e.target.closest(".qty-btn.decrease");
+
+  if (increaseBtn) {
+    const index = increaseBtn.parentElement.dataset.index;
+    cart[index].quantity++;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCounter();
+    renderCart();
+    return;
+  }
+
+  if (decreaseBtn) {
+    const index = decreaseBtn.parentElement.dataset.index;
+    if (cart[index].quantity > 1) {
+      cart[index].quantity--;
+    } else {
+      cart.splice(index, 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCounter();
+    renderCart();
+    return;
+  }
+});
+
+document.addEventListener("input", e => {
+  if (e.target.classList.contains("qty-input")) {
+    const index = e.target.parentElement.dataset.index;
+    let val = parseInt(e.target.value, 10);
+    if (isNaN(val) || val < 1) val = 1;
+    cart[index].quantity = val;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCounter();
+    renderCart();
   }
 });
 
